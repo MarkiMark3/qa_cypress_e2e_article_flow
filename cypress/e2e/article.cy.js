@@ -1,7 +1,7 @@
 const { generateArticle } = require('../support/generateArticle');
 const { generateUser } = require('../support/generateUser');
 
-describe('', () => {
+describe('Article creation and deletion', () => {
   const { username, email, password } = generateUser();
   const { title, description, body } = generateArticle();
 
@@ -11,7 +11,7 @@ describe('', () => {
     cy.reload();
   });
 
-  it('Should write an article ', () => {
+  it('Should create and delete an article ', () => {
     cy.createArticle(title, description, body);
     cy.get('.nav > :nth-child(2) > .link').click();
     cy.get(':nth-child(2) > .preview-link > h1').should('contain', title);
